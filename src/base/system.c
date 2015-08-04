@@ -31,6 +31,8 @@ void dbg_msg(const char *sys, const char *fmt, ...)
 	vsnprintf(msg, sizeof(str)-len, fmt, args);
 #endif
 	va_end(args);
+
+	printf("%s\n", msg);
 }
 
 /*
