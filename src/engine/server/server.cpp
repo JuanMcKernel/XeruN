@@ -1,21 +1,25 @@
-#include "client.h"
+#include "server.h"
+#include <engine/shared/netsettings.h>
+#include <base/system.h>
 #include <cstdlib>
 
-CClient::CClient()
+
+SServer::SServer()
 {
 
 }
 
-void CClient::Init()
+void SServer::Init()
+{
+    if (m_socket.bind(PORT) != sf::Socket::Done)
+        dbg_msg("Server", "ERROR: Couldn't listen port %d.", PORT);
+    else dbg_msg("Server", "Listening port %d.", PORT);
+}
+
+void SServer::Run()
 {
 
 }
-
-void CClient::Run()
-{
-
-}
-
 
 /*
  * MAIN
@@ -23,13 +27,12 @@ void CClient::Run()
 
 int main()
 {
-	CClient *pClient = new CClient;
+	SServer *pServer = new SServer;
 	IKernel *pKernel = IKernel::Create();
-	pKernel->RegisterInterface(pClient);
-	//pClient->RegisterInterfaces();
+	pKernel->RegisterInterface(pServer);
 
-	pClient->Init();
-	pClient->Run();
+	pServer->Init();
+	pServer->Run();
 
 	exit(EXIT_SUCCESS);
 }

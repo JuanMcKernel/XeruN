@@ -1,19 +1,15 @@
-/*
- * client.h
- *
- *  Created on: 4/8/2015
- *      Author: uchar
- */
+#ifndef SRC_ENGINE_SERVER_SERVER_H
+#define SRC_ENGINE_SERVER_SERVER_H
 
-#ifndef SRC_ENGINE_CLIENT_CLIENT_H_
-#define SRC_ENGINE_CLIENT_CLIENT_H_
+#include <SFML/Network.hpp>
+#include <engine/server.h>
 
-#include <engine/client.h>
-
-class CClient : public IClient
+class SServer : public IServer
 {
+    sf::UdpSocket m_socket;
+
 public:
-	CClient();
+	SServer();
 
 	void Init();
 	void Run();
@@ -21,4 +17,4 @@ public:
 
 
 
-#endif /* SRC_ENGINE_CLIENT_CLIENT_H_ */
+#endif /* SRC_ENGINE_SERVER_SERVER_H_ */
