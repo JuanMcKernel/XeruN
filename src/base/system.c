@@ -10,7 +10,7 @@ extern "C" {
 #endif
 
 /*
- * DEBUGGING
+ * DEBUGGING & TESTING
  */
 
 void dbg_msg(const char *sys, const char *fmt, ...)
