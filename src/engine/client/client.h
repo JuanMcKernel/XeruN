@@ -12,8 +12,13 @@
 
 class CClient : public IClient
 {
+	IGameClient *m_pGameClient;
+
 public:
+	IGameClient *GameClient() { return m_pGameClient; }
+
 	CClient();
+	~CClient();
 
 	void Init();
 	void Run();
